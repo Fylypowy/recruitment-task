@@ -9,7 +9,6 @@
   },
   "rules": {
     "no-console": false,
-    "order-imports": false,
-    "strict": false
+    "order-imports": false
   }
 }
