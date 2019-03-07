@@ -1,1 +1,18 @@
+.container{
+    margin-top: 4vh;
+    max-height: 92vh;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    background-color: #eee;
+    border: solid royalblue 2px;
+}
 
+
+
+.paddingLeft{
+    padding-left: 0;
+}
+
+.paddingRight{
+    padding-right: 0;
+}

@@ -1,0 +1,12 @@
+.toolbar{
+    display: flex;
+    flex-direction: column;
+    margin: 1vh 0 2vh 2vh;
+    height: 77.6vh;
+    border: 1px solid rgba(65, 105, 225, 0.74);
+    align-items: center;
+}
+
+.slider{
+    max-width: 90%;
+}
