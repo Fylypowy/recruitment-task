@@ -9,6 +9,9 @@
   },
   "rules": {
     "no-console": false,
-    "order-imports": false
+    "order-imports": false,
+    "member-access": [true, "no-public"],
+    "interface-name": [true, "never-prefix"]
+
   }
 }
