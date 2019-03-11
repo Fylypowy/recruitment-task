@@ -62,11 +62,13 @@ class Photo extends React.Component<Props, State> {
 
     return (
       <img
+        className={this.state.isActive ? "rotate" : ""}
         style={{ filter: `brightness(${brightness})` }}
         src={file}
         onMouseDown={this.mouseDownHandler}
         onMouseUp={this.mouseUpHandler}
         onMouseMove={this.mouseMoveHandler}
+        onMouseLeave={this.mouseUpHandler}
         ref={this.refbox}
       />
     );
@@ -130,7 +132,7 @@ class Photo extends React.Component<Props, State> {
       this.setState({
         angle: newAngle
       });
-    } // active conditional
+    }
   };
 }
 

@@ -9,7 +9,6 @@ import "./style/App.css";
 interface State {
   brightness: number;
   labelText: string;
-  selectedFile?: File;
   tempUrl: string;
 }
 
@@ -54,11 +53,20 @@ class App extends React.Component<{}, State> {
     if (file === undefined) {
       return;
     } else {
-      this.setState({
-        brightness: 1,
-        labelText: file.name,
-        tempUrl: URL.createObjectURL(file)
-      });
+      if (file.name.length > 8) {
+        const name = file.name.slice(0, 3) + "... " + file.name.slice(-4);
+        this.setState({
+          brightness: 1,
+          labelText: name,
+          tempUrl: URL.createObjectURL(file)
+        });
+      } else {
+        this.setState({
+          brightness: 1,
+          labelText: file.name,
+          tempUrl: URL.createObjectURL(file)
+        });
+      }
     }
   };
 

@@ -1,7 +1,9 @@
 .workspace {
     overflow: hidden;
     margin: 1vh 2vh 0 2vh;
-    border: 1px solid rgba(65, 105, 225, 0.616);
+    background-color: rgba(117, 113, 113, 0.87);
+    border: 1px solid black;
+    border-radius: 6px;
     line-height: 77.4vh;
     text-align: center;
 }
@@ -10,4 +12,8 @@ img {
     display: inline-block;
     max-width: 55vw;
     max-height: 60vh;
+}
+
+.rotate:hover {
+    cursor: grab;
 }

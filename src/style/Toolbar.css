@@ -3,10 +3,20 @@
     flex-direction: column;
     margin: 1vh 0 2vh 2vh;
     height: 77.6vh;
-    border: 1px solid rgba(65, 105, 225, 0.74);
+    background-color: rgba(117, 113, 113, 0.87);
+    border: 1px solid black;
+    border-radius: 6px;
     align-items: center;
 }
 
 .slider {
     max-width: 90%;
+}
+
+.brightness {
+    width: 25px;
+    height: 25px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background: url('../assets/sun-regular.svg');
 }

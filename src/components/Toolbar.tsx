@@ -9,7 +9,7 @@ interface Props {
 function Toolbar({ brightness, brightnessHandler }: Props) {
   return (
     <div className="toolbar ">
-      <p> Brightness </p>
+      <div className="brightness" />
       <input
         id="slider"
         className="slider"
