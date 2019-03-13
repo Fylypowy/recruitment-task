@@ -43,7 +43,7 @@ class Button extends React.Component<Props, State> {
         style={
           this.state.isOpen ? { backgroundColor: "rgba(77, 74, 74, 0.87)" } : {}
         }
-        className="icon_div col-2 col-md-12"
+        className="icon_div"
       >
         <img
           className="icon_img"

@@ -10,6 +10,8 @@ interface State {
   brightness: number;
   labelText: string;
   tempUrl: string;
+  popUpType: string;
+  isPopUpActive: boolean;
 }
 
 class App extends React.Component<{}, State> {
@@ -17,7 +19,9 @@ class App extends React.Component<{}, State> {
     super(props);
     this.state = {
       brightness: 1,
+      isPopUpActive: false,
       labelText: "Choose file",
+      popUpType: "",
       tempUrl: ""
     };
   }
@@ -26,12 +30,10 @@ class App extends React.Component<{}, State> {
     return (
       <div className="container-fluid p-3">
         <div className="row">
-          <div className="col-sm-12 col-md-1 pr-3 pr-md-0">
-            <Toolbar
-              brightness={this.state.brightness}
-              brightnessHandler={this.brightnessChangeHandler}
-            />
-          </div>
+          <Toolbar
+            brightness={this.state.brightness}
+            brightnessHandler={this.brightnessChangeHandler}
+          />
           <div className="col-sm-12 col-md-11 pt-md-0">
             <Workspace
               brightness={this.state.brightness}

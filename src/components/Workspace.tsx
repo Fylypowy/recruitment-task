@@ -51,7 +51,7 @@ class Workspace extends React.Component<Props, {}> {
                 backgroundColor: "rgba(117, 113, 113, 0.87)",
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
-                backgroundSize: "40vh 40vh"
+                backgroundSize: "40% 40%"
               }
         }
         className="workspace"
