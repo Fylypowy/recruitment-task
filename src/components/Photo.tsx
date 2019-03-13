@@ -62,7 +62,7 @@ class Photo extends React.Component<Props, State> {
 
     return (
       <img
-        className={this.state.isActive ? "rotate" : ""}
+        className={this.state.isActive ? "photo rotate" : "photo"}
         style={{ filter: `brightness(${brightness})` }}
         src={file}
         onMouseDown={this.mouseDownHandler}

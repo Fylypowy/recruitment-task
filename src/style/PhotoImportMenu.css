@@ -1,14 +1,21 @@
 .photo_import_menu {
+    display: flex;
+    padding-right: 3vh;
     height: 8vh;
-    margin-left: 2vh;
-    margin-right: 2vh;
-    background-color: rgba(117, 113, 113, 0.87);
-    border: 1px solid black;
-    border-radius: 6px;
+    background-color: white;
+    border-radius: 15px;
 }
 
-input {
-    overflow: hidden;
+.custom-file-label {
+    border: none;
+}
+
+.custom-file-label:after {
+    top: .8vh;
+    content: "";
+    background-color: #fff;
+    background-image: url("../assets/search-solid.svg");
+    background-repeat: no-repeat;
 }
 
 label:hover {

@@ -11,8 +11,8 @@ interface Props {
 
 function PhotoImportMenu({ fileHandler, labelText }: Props) {
   return (
-    <div className="row  photo_import_menu">
-      <div className="col input-group align-self-center">
+    <div className="photo_import_menu align-items-center mt-3">
+      <div className="input-group ">
         <div className="custom-file">
           <input
             id="file_upload"

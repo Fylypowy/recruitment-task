@@ -1,6 +1,7 @@
 import * as React from "react";
 import "../style/Workspace.css";
 
+import drag from "../assets/drag_and_drop.svg";
 import Photo from "./Photo";
 
 interface Props {
@@ -38,8 +39,23 @@ class Workspace extends React.Component<Props, {}> {
 
   render() {
     const { file, brightness } = this.props;
+    console.log(file);
     return (
-      <div ref={this.workspaceDiv} className="workspace">
+      <div
+        ref={this.workspaceDiv}
+        style={
+          file
+            ? {}
+            : {
+                background: `url(${drag})`,
+                backgroundColor: "rgba(117, 113, 113, 0.87)",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "40vh 40vh"
+              }
+        }
+        className="workspace"
+      >
         <Photo file={file} brightness={brightness} />
       </div>
     );

@@ -24,22 +24,22 @@ class App extends React.Component<{}, State> {
 
   render() {
     return (
-      <div className="container">
-        <PhotoImportMenu
-          fileHandler={this.fileSelectedHandler}
-          labelText={this.state.labelText}
-        />
-        <div className="row h-100">
-          <div className="col-3 pr-0">
+      <div className="container-fluid p-3">
+        <div className="row">
+          <div className="col-sm-12 col-md-1 pr-3 pr-md-0">
             <Toolbar
               brightness={this.state.brightness}
               brightnessHandler={this.brightnessChangeHandler}
             />
           </div>
-          <div className="col-9  pl-0">
+          <div className="col-sm-12 col-md-11 pt-md-0">
             <Workspace
               brightness={this.state.brightness}
               file={this.state.tempUrl}
+            />
+            <PhotoImportMenu
+              fileHandler={this.fileSelectedHandler}
+              labelText={this.state.labelText}
             />
           </div>
         </div>
@@ -50,30 +50,25 @@ class App extends React.Component<{}, State> {
   private fileSelectedHandler = (e: React.FormEvent) => {
     const event = e.target as HTMLInputElement;
     const file: File = (event.files as FileList)[0];
-    if (file === undefined) {
-      return;
-    } else {
+    let name: string;
+    if (file) {
       if (file.name.length > 8) {
-        const name = file.name.slice(0, 3) + "... " + file.name.slice(-4);
-        this.setState({
-          brightness: 1,
-          labelText: name,
-          tempUrl: URL.createObjectURL(file)
-        });
+        name = file.name.slice(0, 3) + "... " + file.name.slice(-4);
       } else {
-        this.setState({
-          brightness: 1,
-          labelText: file.name,
-          tempUrl: URL.createObjectURL(file)
-        });
+        name = file.name;
       }
+      this.setState({
+        brightness: 1,
+        labelText: name,
+        tempUrl: URL.createObjectURL(file)
+      });
     }
   };
 
   private brightnessChangeHandler = (e: React.FormEvent) => {
-    const event = e.target as HTMLInputElement;
+    const element = e.target as HTMLInputElement;
     this.setState({
-      brightness: parseFloat(event.value)
+      brightness: parseFloat(element.value)
     });
   };
 }

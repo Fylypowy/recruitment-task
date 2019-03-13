@@ -1,9 +1,3 @@
-.container {
-    margin-top: 4vh;
-    max-height: 92vh;
-    padding-top: 2vh;
-    padding-bottom: 2vh;
-    background-color: rgb(58, 56, 56);
-    border: double black 2px;
-    border-radius: 6px;
+.container-fluid {
+    background-color: rgb(37, 37, 37);
 }
