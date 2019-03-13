@@ -39,7 +39,6 @@ class Workspace extends React.Component<Props, {}> {
 
   render() {
     const { file, brightness } = this.props;
-    console.log(file);
     return (
       <div
         ref={this.workspaceDiv}

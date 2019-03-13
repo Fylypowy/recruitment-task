@@ -10,8 +10,6 @@ interface State {
   brightness: number;
   labelText: string;
   tempUrl: string;
-  popUpType: string;
-  isPopUpActive: boolean;
 }
 
 class App extends React.Component<{}, State> {
@@ -19,9 +17,7 @@ class App extends React.Component<{}, State> {
     super(props);
     this.state = {
       brightness: 1,
-      isPopUpActive: false,
       labelText: "Choose file",
-      popUpType: "",
       tempUrl: ""
     };
   }

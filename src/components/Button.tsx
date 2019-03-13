@@ -20,11 +20,13 @@ interface State {
 }
 
 class Button extends React.Component<Props, State> {
+  buttonDiv: React.RefObject<HTMLDivElement>;
   constructor(props: Props) {
     super(props);
     this.state = {
       isOpen: false
     };
+    this.buttonDiv = React.createRef();
   }
   render() {
     const {
@@ -40,6 +42,7 @@ class Button extends React.Component<Props, State> {
     } = this.props;
     return (
       <div
+        ref={this.buttonDiv}
         style={
           this.state.isOpen ? { backgroundColor: "rgba(77, 74, 74, 0.87)" } : {}
         }
@@ -49,7 +52,7 @@ class Button extends React.Component<Props, State> {
           className="icon_img"
           src={icon}
           alt="brightness"
-          onClick={this.openPopupHandler}
+          onClick={this.tooglePopupHandler}
         />
         {this.state.isOpen ? (
           <PopUp
@@ -57,7 +60,7 @@ class Button extends React.Component<Props, State> {
             className={className}
             type={type}
             onChange={onChange}
-            click={this.openPopupHandler}
+            click={this.tooglePopupHandler}
             min={min}
             max={max}
             step={step}
@@ -67,12 +70,19 @@ class Button extends React.Component<Props, State> {
       </div>
     );
   }
-  private openPopupHandler = (e: React.MouseEvent) => {
-    e.preventDefault();
-    const isOpen = !this.state.isOpen;
-    this.setState({
-      isOpen
-    });
+  private tooglePopupHandler = (e: React.MouseEvent) => {
+    document.addEventListener("click", this.outsideClickHandler);
+    this.setState(prevState => ({
+      isOpen: !prevState.isOpen
+    }));
+  };
+
+  private outsideClickHandler = (e: any) => {
+    if (this.buttonDiv.current) {
+      if (this.buttonDiv && !this.buttonDiv.current.contains(e.target)) {
+        this.setState({ isOpen: false });
+      }
+    }
   };
 }
 

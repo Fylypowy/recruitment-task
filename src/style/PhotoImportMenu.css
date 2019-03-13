@@ -2,16 +2,19 @@
     display: flex;
     padding-right: 3vh;
     height: 8vh;
+    min-height: 42px;
     background-color: white;
     border-radius: 15px;
 }
 
 .custom-file-label {
     border: none;
+    margin-left: 5%;
+    padding-left: 0;
 }
 
 .custom-file-label:after {
-    top: .8vh;
+    top: 15%;
     content: "";
     background-color: #fff;
     background-image: url("../assets/search-solid.svg");
@@ -20,4 +23,8 @@
 
 label:hover {
     cursor: pointer;
+}
+
+.custom-input-file {
+    display: none;
 }
