@@ -6,6 +6,7 @@ import Photo from "./Photo";
 
 interface Props {
   brightness: number;
+  contrast: number;
   file: string;
 }
 
@@ -38,7 +39,7 @@ class Workspace extends React.Component<Props, {}> {
   }
 
   render() {
-    const { file, brightness } = this.props;
+    const { file, brightness, contrast } = this.props;
     return (
       <div
         ref={this.workspaceDiv}
@@ -55,7 +56,7 @@ class Workspace extends React.Component<Props, {}> {
         }
         className="workspace"
       >
-        <Photo file={file} brightness={brightness} />
+        <Photo file={file} brightness={brightness} contrast={contrast} />
       </div>
     );
   }

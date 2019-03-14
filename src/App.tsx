@@ -8,6 +8,7 @@ import "./style/App.css";
 
 interface State {
   brightness: number;
+  contrast: number;
   labelText: string;
   tempUrl: string;
 }
@@ -17,6 +18,7 @@ class App extends React.Component<{}, State> {
     super(props);
     this.state = {
       brightness: 1,
+      contrast: 1,
       labelText: "Choose file",
       tempUrl: ""
     };
@@ -29,10 +31,13 @@ class App extends React.Component<{}, State> {
           <Toolbar
             brightness={this.state.brightness}
             brightnessHandler={this.brightnessChangeHandler}
+            contrast={this.state.contrast}
+            contrastHandler={this.contrastChangeHandler}
           />
-          <div className="col-sm-12 col-md-11 pt-md-0">
+          <div className="col-12 col-md-11 pt-md-0">
             <Workspace
               brightness={this.state.brightness}
+              contrast={this.state.contrast}
               file={this.state.tempUrl}
             />
             <PhotoImportMenu
@@ -57,6 +62,7 @@ class App extends React.Component<{}, State> {
       }
       this.setState({
         brightness: 1,
+        contrast: 1,
         labelText: name,
         tempUrl: URL.createObjectURL(file)
       });
@@ -67,6 +73,12 @@ class App extends React.Component<{}, State> {
     const element = e.target as HTMLInputElement;
     this.setState({
       brightness: parseFloat(element.value)
+    });
+  };
+  private contrastChangeHandler = (e: React.FormEvent) => {
+    const element = e.target as HTMLInputElement;
+    this.setState({
+      contrast: parseFloat(element.value)
     });
   };
 }

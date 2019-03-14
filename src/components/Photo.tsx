@@ -3,6 +3,7 @@ import "../style/Workspace.css";
 
 interface Props {
   brightness: number;
+  contrast: number;
   file: string;
 }
 
@@ -58,12 +59,12 @@ class Photo extends React.Component<Props, State> {
   }
 
   render() {
-    const { file, brightness } = this.props;
+    const { file, brightness, contrast } = this.props;
 
     return (
       <img
-        className={this.state.isActive ? "photo rotate" : "photo"}
-        style={{ filter: `brightness(${brightness})` }}
+        className={this.state.isActive ? "photo rotate photo_shadow" : "photo"}
+        style={{ filter: `contrast(${contrast}) brightness(${brightness})` }}
         src={file}
         onMouseDown={this.mouseDownHandler}
         onMouseUp={this.mouseUpHandler}

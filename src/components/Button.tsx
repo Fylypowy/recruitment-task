@@ -60,7 +60,6 @@ class Button extends React.Component<Props, State> {
             className={className}
             type={type}
             onChange={onChange}
-            click={this.tooglePopupHandler}
             min={min}
             max={max}
             step={step}
@@ -70,7 +69,7 @@ class Button extends React.Component<Props, State> {
       </div>
     );
   }
-  private tooglePopupHandler = (e: React.MouseEvent) => {
+  private tooglePopupHandler = () => {
     document.addEventListener("click", this.outsideClickHandler);
     this.setState(prevState => ({
       isOpen: !prevState.isOpen
